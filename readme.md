@@ -1,7 +1,6 @@
 # PASS-NICE
 [NICE아이디](https://www.niceid.co.kr/index.nc/) 본인인증 요청을 자동화해주는 비공식적인 
 모듈입니다.<br>
-노
 
 ## 필독
 **교육용 및 학습용으로만 사용해 주세요**<br>
