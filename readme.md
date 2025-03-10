@@ -32,44 +32,48 @@
 
 ### 클래스 선언
 ```py
-from filename import Verification
+from filename import PASS_NICE
 
-verification = Verification("ISP")
+verification = PASS_NICE("ISP")
 ```
 * ISP 
     * SK (SK텔레콤), KT (KT), LG (LG)
     * SM (SK알뜰폰), KM (KT알뜰폰), LM (LG알뜰폰)
 
 ### 세션 초기화
-initSession()를 호출하여 세션을 초기화합니다.
+init_session()를 호출하여 세션을 초기화합니다.
 ```py
-await verification.initSession()
+await verification.init_session()
 ```
 
 ### 캡챠 이미지 확인
-getCaptcha()를 호출하여 캡챠 이미지를 반환받습니다.<br>
+get_captcha()를 호출하여 캡챠 이미지를 반환받습니다.<br>
 Ex (captcha.png에 캡챠 내용을 저장합니다): 
 ```py
-captchaImage = await verification.getCaptcha()
+captchaImage = await verification.get_captcha()
+
+if not captchaImage['Success']:
+    return {"Success": False, "Message": captchaResult['Message']}
+
 with open('captcha.png', 'wb') as f:
-    f.write(captchaImage)
+    f.write(captchaImage['Content'])
 ```
 
 ### SMS 메시지 전송
-sendSmsCode()를 호출하여 SMS 인증 메시지를 전송합니다.
+send_SMS_verify()를 호출하여 SMS 인증 메시지를 전송합니다.
 ```py
 name = "홍길동" # 인증자 성명
 birthdate = "0701023" # YYMMDD(성별코드)
 phone = "01012345678" # -(하이폰) 없이, 숫자로만 구성되어야 합니다.
 captchaCode = 666666 # 캡챠 코드
 
-await verification.sendSmsCode(name, birthdate, phone, captchaCode)
+await verification.send_SMS_verify(name, birthdate, phone, captchaCode)
 ```
 
 ### 인증코드 확인
-checkSmsCode()를 호출하여 SMS 인증코드를 확인합니다.
+check_SMS_verify()를 호출하여 SMS 인증코드를 확인합니다.
 ```py
 smsCode = "123456" # SMS로 전송된 인증 코드 (6자리)
 
-await verification.checkSmsCode(smsCode)
+await verification.check_SMS_verify(smsCode)
 ```
