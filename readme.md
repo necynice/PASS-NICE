@@ -12,11 +12,11 @@
 **해당 모듈을 통한 여러 개발 & 창작물의 판매을 허용합니다.**<br>
 출처 표시는 꼭 부탁드립니다.<br>
 
-문의 : Telegram @sunr1s2_0 | Discord @necynice_<br>
+문의 : sunr1s2@proton.me<br>
 
 ## 기능
-- SMS 본인인증
-- MVNO 포함, 모든 통신사를 지원합니다.
+- SMS 본인인증 (MVNO 포함, 모든 통신사를 지원합니다)
+- PASS 앱 본인인증 (지원 예정)
 
 ## Common Informations
 ### 기본 반환 형식:
